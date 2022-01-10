@@ -1,0 +1,9 @@
+{
+    "compilerOption" : {
+        "allowjs" : true,
+        "module" : "commanjs",
+        "target" : "es2015",
+        "noImplicitAny" : false
+    },
+    "include" : ["./script.ts"]
+}

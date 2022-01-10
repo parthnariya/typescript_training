@@ -1,0 +1,8 @@
+{
+    "compilerOptions": {
+        "module": "CommonJS",
+        "target": "ES2017",
+        "outDir": "lib"
+    },
+    "include": ["src"] // get all files in src folder
+}
