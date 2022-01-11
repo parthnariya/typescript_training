@@ -1,11 +1,12 @@
-var operationDiv = document.getElementById("operation-div");
-var resultDiv = document.getElementById("result-div");
+"use strict";
+let operationDiv = document.getElementById("operation-div");
+let resultDiv = document.getElementById("result-div");
 function addChar(element) {
-    var char = element.getAttribute("data-value");
+    let char = element.getAttribute("data-value");
     operationDiv.innerText += char;
 }
 function plusorMinus() {
-    var originalVal = Number(operationDiv.innerText);
+    let originalVal = Number(operationDiv.innerText);
     originalVal = originalVal * -1;
     operationDiv.innerText = originalVal.toString();
 }
@@ -15,22 +16,22 @@ function clearScreen() {
 }
 //Backspace fun.
 function backspace() {
-    var operationValue = operationDiv.innerText;
-    var operationValueLength = operationValue.length;
-    var newOperationValue = operationValue.substring(0, operationValueLength - 1);
+    let operationValue = operationDiv.innerText;
+    let operationValueLength = operationValue.length;
+    let newOperationValue = operationValue.substring(0, operationValueLength - 1);
     operationDiv.innerText = newOperationValue;
 }
 //Calculate fun.
 function calculate() {
-    var operationValue = operationDiv.innerText;
+    let operationValue = operationDiv.innerText;
     //   operationValue.replace("^", "**");
     //   console.log(typeof(operationValue))
     operationDiv.innerText = eval(operationValue);
 }
 // trigonometry function to calculate sine,cos,tan,cot,cosec,sec
 function trigonometry(fun) {
-    var operationValue = Number(operationDiv.innerText);
-    var result;
+    let operationValue = Number(operationDiv.innerText);
+    let result = 0;
     switch (fun) {
         case "sine":
             result = Math.sin(operationValue);
@@ -51,55 +52,55 @@ function trigonometry(fun) {
             result = 1 / Math.cos(operationValue);
             break;
     }
-    if (result === "NaN") {
+    if (result === NaN) {
         operationDiv.innerText = "Error";
     }
     else {
-        operationDiv.innerText = result;
+        operationDiv.innerText = result.toString();
     }
 }
 function calc_square() {
-    var operationValue = Number(operationDiv.innerText);
+    let operationValue = Number(operationDiv.innerText);
     operationDiv.innerText = String(operationValue * operationValue);
 }
 function calc_absolute() {
-    var operationValue = Number(operationDiv.innerText);
+    let operationValue = Number(operationDiv.innerText);
     operationDiv.innerText = String(Math.abs(operationValue));
 }
 function calc_exp() {
-    var operationValue = Number(operationDiv.innerText);
+    let operationValue = Number(operationDiv.innerText);
     operationDiv.innerText = String(Math.exp(operationValue));
 }
 function calc_sqrt() {
-    var operationValue = Number(operationDiv.innerText);
-    operationDiv.innerText = String(Math.sqrt(operationValue));
+    let operationValue = Number(operationDiv.innerText);
+    operationDiv.innerText = Math.sqrt(operationValue).toString();
 }
 function calc_factorial() {
-    var operationValue = Number(operationDiv.innerText);
-    var result = 1;
-    var i = 0;
+    let operationValue = Number(operationDiv.innerText);
+    let result = 1;
+    let i = 0;
     for (i = operationValue; i >= 1; i--) {
         result *= i;
     }
     operationDiv.innerText = result.toString();
 }
 function calc_ten_pow() {
-    var operationValue = Number(operationDiv.innerText);
+    let operationValue = Number(operationDiv.innerText);
     operationDiv.innerText = Math.pow(10, operationValue).toString();
 }
 // log base 10 function
 function calc_log() {
-    var operationValue = Number(operationDiv.innerText);
-    operationDiv.innerText = Math.log10(operationValue);
+    let operationValue = Number(operationDiv.innerText);
+    operationDiv.innerText = Math.log10(operationValue).toString();
 }
 //natural logarithm function
 function calc_ln() {
-    var operationValue = Number(operationDiv.innerText);
+    let operationValue = Number(operationDiv.innerText);
     operationDiv.innerText = Math.log(operationValue).toString();
 }
 // MC, MR, M+, M-, MS funtionality
-var memoryArr = [];
-var mStatus = 0;
+let memoryArr = [];
+let mStatus = 0;
 function memoryClear() {
     memoryArr = [];
     if (mStatus == 1) {
@@ -108,15 +109,14 @@ function memoryClear() {
     }
 }
 function memoryRecall() {
-    var sum = 0;
-    for (var _i = 0, memoryArr_1 = memoryArr; _i < memoryArr_1.length; _i++) {
-        var x = memoryArr_1[_i];
+    let sum = 0;
+    for (let x of memoryArr) {
         sum += Number(x);
     }
     operationDiv.innerText = sum.toString();
 }
 function memoryPlus() {
-    var operationValue = Number(operationDiv.innerText);
+    let operationValue = Number(operationDiv.innerText);
     if (operationDiv.innerText != "") {
         memoryArr.push(operationValue);
     }
@@ -128,7 +128,7 @@ function memoryPlus() {
     operationDiv.innerText = "";
 }
 function memoryMinus() {
-    var operationValue = Number(operationDiv.innerText);
+    let operationValue = Number(operationDiv.innerText);
     if (operationDiv.innerText != "") {
         memoryArr.push(operationValue * (-1));
     }
@@ -140,7 +140,7 @@ function memoryMinus() {
     operationDiv.innerText = "";
 }
 function memorySave() {
-    var operationValue = Number(operationDiv.innerText);
+    let operationValue = Number(operationDiv.innerText);
     if (operationDiv.innerText != "") {
         memoryArr.push(operationValue);
     }
