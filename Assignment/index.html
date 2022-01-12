@@ -19,13 +19,12 @@
           <th colspan="5">
             <div class="output-container">
               <div class="operation" id="operation-div"></div>
-              <!-- <div class="result" id="result-div"></div> -->
             </div>
           </th>
         </tr>
         <tr class="row2">
-          <td>DEG</td>
-          <td>F-E</td>
+          <td onclick="radianToDegree()">DEG</td>
+          <td onclick="fixed_exp()">F-E</td>
         </tr>
         <tr class="row3">
           <td onclick="memoryClear()" class="off-MC-MR" id="memory-clear">
@@ -56,11 +55,16 @@
               <div data-value="sec" onclick="trigonometry('sec')">sec</div>
             </div>
           </td>
-          <td colspan="2">
-            <div class="function">
+          <td colspan="2" class="dropdown">
+            <div class="trigonometry dropdown-btn">
               <span class="span1">&#10765;</span>&nbsp;&nbsp;
-              <span class="span2">Function</span>&nbsp;
+              <span >Function</span>&nbsp;
               <i class="material-icons">expand_more</i>
+            </div>
+            <div class="dropdown-content" id="dropdown-content">
+              <div data-value="floor" onclick="mathFunction('floor')">Floor</div>
+              <div data-value="ceil" onclick="mathFunction('ceil')">Ceil</div>
+              <div data-value="trunc" onclick="mathFunction('trunc')">Trunc</div>
             </div>
           </td>
         </tr>
@@ -114,13 +118,13 @@
             <span>x<sup>y</sup></span>
           </td>
           <td data-value="7" onclick="addChar(this)">
-            <span>7</span>
+            <span class="numericValue">7</span>
           </td>
           <td data-value="8" onclick="addChar(this)">
-            <span>8</span>
+            <span class="numericValue">8</span>
           </td>
           <td data-value="9" onclick="addChar(this)">
-            <span>9</span>
+            <span class="numericValue">9</span>
           </td>
           <td data-value="*" onclick="addChar(this)">
             <span title="multiplication">&#10799;</span>
@@ -128,16 +132,16 @@
         </tr>
         <tr class="row9">
           <td data-value="10^" onclick="calc_ten_pow()">
-            <span>10<sup>x</sup></span>
+            <span >10<sup>x</sup></span>
           </td>
           <td data-value="4" onclick="addChar(this)">
-            <span>4</span>
+            <span class="numericValue">4</span>
           </td>
           <td data-value="5" onclick="addChar(this)">
-            <span>5</span>
+            <span class="numericValue">5</span>
           </td>
           <td data-value="6" onclick="addChar(this)">
-            <span>6</span>
+            <span class="numericValue">6</span>
           </td>
           <td data-value="-" onclick="addChar(this)">
             <span class="minus" title="minus">&#8722;</span>
@@ -148,13 +152,13 @@
             <span>log</span>
           </td>
           <td data-value="1" onclick="addChar(this)">
-            <span>1</span>
+            <span class="numericValue">1</span>
           </td>
           <td data-value="2" onclick="addChar(this)">
-            <span>2</span>
+            <span class="numericValue">2</span>
           </td>
           <td data-value="3" onclick="addChar(this)">
-            <span>3</span>
+            <span class="numericValue">3</span>
           </td>
           <td data-value="+" onclick="addChar(this)">
             <span class="plus" title="plus">&#43;</span>
@@ -168,7 +172,7 @@
             <span title="plusOrMinus">&#177;</span>
           </td>
           <td data-value="0" onclick="addChar(this)">
-            <span>0</span>
+            <span class="numericValue">0</span>
           </td>
           <td data-value="." onclick="addChar(this)">
             <span>.</span>
